@@ -1,15 +1,19 @@
 import CategoriesScreen from './screens/CategoriesScreen';
+import MealsOverView from './screens/MealsOverview';
 import React from 'react';
-import {StyleSheet, SafeAreaView} from 'react-native';
-import {CATEGORIES} from './data/dummy-data';
+import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
   return (
-    <SafeAreaView style={styles.container}>
-      <CategoriesScreen data={CATEGORIES} />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="CategoryScreen" component={CategoriesScreen} />
+        <Stack.Screen name="MealsOverviewScreen" component={MealsOverView} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

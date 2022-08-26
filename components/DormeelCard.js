@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, StyleSheet, Text, Pressable} from 'react-native';
 
-function DormeeelGridCard({item}) {
+function DormeeelGridCard({item, onPress}) {
   return (
     <View style={[styles.gridcard, {backgroundColor: item.color}]}>
       <Pressable
+        onPress={onPress}
         style={({pressed}) => [
           styles.button,
           pressed ? styles.buttonpressed : null,

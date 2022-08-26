@@ -1,12 +1,11 @@
 import React from 'react';
 import {FlatList, View, StyleSheet} from 'react-native';
 import DormeeelGridCard from './DormeelCard';
-function renderCategoryItem({item}) {
-  return <DormeeelGridCard item={item} />;
-}
 
-function FlatlistDormeel({data}) {
-  console.log('flatlist', data);
+function FlatlistDormeel({data, onPress}) {
+  function renderCategoryItem({item}) {
+    return <DormeeelGridCard item={item} onPress={onPress} />;
+  }
   return (
     <View style={styles.catgridcontainer}>
       <FlatList
