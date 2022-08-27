@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {} from '../data/dummy-data';
-function MealsOverView(params) {
+
+function MealsOverView({route}) {
+  const category = route.params.category;
   return (
-    <View>
-      <Text> this worked.</Text>
+    <View styles={styles.container}>
+      <Text> this is the thing- {category}</Text>
     </View>
   );
 }

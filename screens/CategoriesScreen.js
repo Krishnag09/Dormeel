@@ -4,15 +4,12 @@ import FlatlistDormeel from '../components/FlatlistDormeel';
 import {CATEGORIES} from '../data/dummy-data';
 
 function CategoriesScreen({navigation}) {
-  function onPressHandler() {
-    navigation.navigate('MealsOverviewScreen');
-  }
   return (
     <View>
       <FlatlistDormeel
         style={styles.catcontainer}
         data={CATEGORIES}
-        onPress={onPressHandler}
+        navigation={navigation}
       />
     </View>
   );

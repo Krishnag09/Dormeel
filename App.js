@@ -1,5 +1,6 @@
 import CategoriesScreen from './screens/CategoriesScreen';
 import MealsOverView from './screens/MealsOverview';
+import FlatlistDormeel from './components/FlatlistDormeel';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
@@ -12,6 +13,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="CategoryScreen" component={CategoriesScreen} />
         <Stack.Screen name="MealsOverviewScreen" component={MealsOverView} />
+        <Stack.Screen name="FlatlistDormeel" component={FlatlistDormeel} />
       </Stack.Navigator>
     </NavigationContainer>
   );
