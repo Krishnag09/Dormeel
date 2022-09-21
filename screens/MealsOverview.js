@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, FlatList, StyleSheet, Text, Image, Pressable} from 'react-native';
 import {MEALS} from '../data/dummy-data';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCheckSquare, faCoffee} from '@fortawesome/fontawesome-free-solid';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import * as Likes from '../api/likes';
 
 function MealsOverView({route}) {
   const category = route.params.category;
+  const [vegan, setVegan] = useState(false);
+  const [isLiked, setisLiked] = useState(false);
+  useEffect(() => {
+    setLikesset;
+  });
+
+  function setLikesset() {
+    Likes.action();
+    setisLiked(isLiked, true);
+  }
+  const setVegansetter = () => {
+    setVegan(vegan, true);
+  };
   const displayedMeals = MEALS.filter(mealitem => {
     return mealitem.categoryIds.indexOf(category);
   });
@@ -23,23 +36,16 @@ function MealsOverView({route}) {
             <Text>{item.title}</Text>
           </View>
           <View style={styles.iconcontainer}>
-            <Text>{item.duration} </Text>
+            <Text>{item.duration}</Text>
             <FontAwesomeIcon
-              icon={
-                item.isVegan
-                  ? 'fa-duotone fa-seedling'
-                  : 'fa-light fa-seedling-crosshairs-slash'
-              }
+              icon="fa-solid fa-leaf"
+              color={vegan ? 'green' : ''}
             />
-            <FontAwesomeIcon
-              icon={
-                item.isVegan
-                  ? 'fa-duotone fa-seedling'
-                  : 'fa-light fa-seedling-crosshairs-slash'
-              }
-            />
-            <FontAwesomeIcon icon={faCoffee} />
-            <Text>hello</Text>
+            <Pressable>
+              <FontAwesomeIcon
+                icon={isLiked ? 'fa-heart' : 'fa-solid fa-heart'}
+              />
+            </Pressable>
           </View>
         </Pressable>
       </View>
@@ -90,5 +96,6 @@ const styles = StyleSheet.create({
   },
   iconcontainer: {
     flexDirection: 'row',
+    paddingHorizontal: 10,
   },
 });
